@@ -1,6 +1,9 @@
 package com.jinxedstudios.hellwalker;
 
+import com.jinxedstudios.hellwalker.entities.HellwalkerEntities;
+import com.jinxedstudios.hellwalker.entities.PossessedScientistRenderer;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.ModContainer;
@@ -20,6 +23,7 @@ public class HellwalkerEngineClient {
         // The config screen is accessed by going to the Mods screen > clicking on your mod > clicking on config.
         // Do not forget to add translations for your config options to the en_us.json file.
         container.registerExtensionPoint(IConfigScreenFactory.class, ConfigurationScreen::new);
+
     }
 
     @SubscribeEvent
@@ -27,5 +31,6 @@ public class HellwalkerEngineClient {
         // Some client setup code
         HellwalkerEngine.LOGGER.info("HELLO FROM CLIENT SETUP");
         HellwalkerEngine.LOGGER.info("MINECRAFT NAME >> {}", Minecraft.getInstance().getUser().getName());
+        EntityRenderers.register(HellwalkerEntities.POSSESSED_SCIENTIST.get(), PossessedScientistRenderer::new);
     }
 }

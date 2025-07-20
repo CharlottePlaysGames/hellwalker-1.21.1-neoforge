@@ -1,8 +1,14 @@
 package com.jinxedstudios.hellwalker;
-
 import com.jinxedstudios.hellwalker.blocks.HellwalkerBlocks;
 import com.jinxedstudios.hellwalker.creativetabs.HellwalkerCreativeTabs;
+import com.jinxedstudios.hellwalker.datagen.HellwalkerItemModelProvider;
+import com.jinxedstudios.hellwalker.entities.HellwalkerEntities;
+import com.jinxedstudios.hellwalker.entities.PossessedScientistRenderer;
+import com.jinxedstudios.hellwalker.event.DamageHandler;
 import com.jinxedstudios.hellwalker.items.HellwalkerItems;
+import com.jinxedstudios.hellwalker.sound.HellwalkerSounds;
+import net.minecraft.client.renderer.entity.EntityRenderers;
+import net.minecraft.resources.ResourceLocation;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
@@ -28,6 +34,9 @@ public class HellwalkerEngine {
     // Directly reference a slf4j logger
     public static final Logger LOGGER = LogUtils.getLogger();
 
+    public static ResourceLocation location(String loc) {
+        return ResourceLocation.tryBuild("hellwalker", loc);
+    }
 
     // The constructor for the mod class is the first code that is run when your mod is loaded.
     // FML will recognize some parameter types like IEventBus or ModContainer and pass them in automatically.
@@ -36,7 +45,9 @@ public class HellwalkerEngine {
         HellwalkerItems.register(modEventBus);
         HellwalkerBlocks.register(modEventBus);
         HellwalkerCreativeTabs.register(modEventBus);
-
+        HellwalkerEntities.register(modEventBus);
+        HellwalkerSounds.register(modEventBus);
+        new DamageHandler();
         // Register ourselves for server and other game events we are interested in.
         // Note that this is necessary if and only if we want *this* class (ExampleMod) to respond directly to events.
         // Do not add this line if there are no @SubscribeEvent-annotated functions in this class, like onServerStarting() below.
