@@ -16,6 +16,9 @@ public class HellwalkerEntities {
     public static final Supplier<EntityType<PossessedScientistEntity>> POSSESSED_SCIENTIST =
             ENTITY_TYPES.register("possessed_scientist", () -> EntityType.Builder.of(PossessedScientistEntity::new, MobCategory.MONSTER)
                     .sized(1f, 1.8f).build("possessed_scientist"));
+    public static final Supplier<EntityType<UnwillingEntity>> UNWILLING =
+            ENTITY_TYPES.register("unwilling", () -> EntityType.Builder.of(UnwillingEntity::new, MobCategory.MONSTER)
+                    .sized(1f, 1.8f).build("unwilling"));
 
 
     public static void register(IEventBus eventBus) {

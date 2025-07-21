@@ -31,6 +31,7 @@ public class HellwalkerCreativeTabs {
             .icon(() -> HellwalkerItems.POSSESSED_SCIENTIST_SPAWN_EGG.get().getDefaultInstance())
             .displayItems((parameters, output) -> {
                 output.accept(HellwalkerItems.POSSESSED_SCIENTIST_SPAWN_EGG);
+                output.accept(HellwalkerItems.UNWILLING_SPAWN_EGG);
             }).build());
     public static final DeferredHolder<CreativeModeTab, CreativeModeTab> HELLWALKER_BLOCKS = CREATIVE_MODE_TABS.register("hellwalker_blocks", () -> CreativeModeTab.builder()
             .title(Component.translatable("itemGroup.hellwalker_blocks")) //The language key for the title of your CreativeModeTab

@@ -39,6 +39,7 @@ public class HellwalkerItemModelProvider extends ItemModelProvider {
 
 
         withExistingParent(HellwalkerItems.POSSESSED_SCIENTIST_SPAWN_EGG.getId().getPath(), mcLoc("item/template_spawn_egg"));
+        withExistingParent(HellwalkerItems.UNWILLING_SPAWN_EGG.getId().getPath(), mcLoc("item/template_spawn_egg"));
     }
 
  //   private ItemModelBuilder saplingItem(DeferredBlock<Block> item) {

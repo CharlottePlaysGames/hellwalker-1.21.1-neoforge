@@ -2,6 +2,7 @@ package com.jinxedstudios.hellwalker.event;
 
 import com.jinxedstudios.hellwalker.HellwalkerEngine;
 import com.jinxedstudios.hellwalker.entities.PossessedScientistEntity;
+import com.jinxedstudios.hellwalker.entities.UnwillingEntity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.PathfinderMob;
 import net.minecraft.world.entity.ai.goal.AvoidEntityGoal;
@@ -34,6 +35,13 @@ public class EntityJoinLevelEvent {
                     1.2D,  // walk speed
                     1.5D   // sprint speed
             ));
+            mob.goalSelector.addGoal(1, new AvoidEntityGoal<>(
+                    mob,
+                    UnwillingEntity.class,
+                    10.0F, // avoid distance
+                    1.2D,  // walk speed
+                    1.5D   // sprint speed
+            ));
         }
         if (mob.getType() == EntityType.VILLAGER) {
             mob.goalSelector.addGoal(1, new AvoidEntityGoal<>(
@@ -52,6 +60,24 @@ public class EntityJoinLevelEvent {
                     1.0D,
                     1.3D
             ));
+            if (mob.getType() == EntityType.VILLAGER) {
+                mob.goalSelector.addGoal(1, new AvoidEntityGoal<>(
+                        mob,
+                        UnwillingEntity.class,
+                        12.0F, // avoid distance
+                        1.0D,
+                        1.3D
+                ));
+            }
+            if (mob.getType() == EntityType.WANDERING_TRADER) {
+                mob.goalSelector.addGoal(1, new AvoidEntityGoal<>(
+                        mob,
+                        UnwillingEntity.class,
+                        12.0F, // avoid distance
+                        1.0D,
+                        1.3D
+                ));
+            }
         }
     }
 }

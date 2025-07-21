@@ -22,5 +22,7 @@
   "key.categories.slayer": "Slayer Controls",
 
   "entity.hellwalker.possessed_scientist": "Possessed Scientist",
-  "item.hellwalker.possessed_scientist_spawn_egg": "Possessed Scientist Spawn Egg"
+  "item.hellwalker.possessed_scientist_spawn_egg": "Possessed Scientist Spawn Egg",
+  "entity.hellwalker.unwilling": "Unwilling",
+  "item.hellwalker.unwilling_spawn_egg": "Unwilling Spawn Egg"
 }
